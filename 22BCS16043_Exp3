@@ -1,0 +1,59 @@
+// Print Linked List
+
+class Solution {
+  public:
+    // Function to display the elements of a linked list in same line
+    void printList(Node *head) {
+        // your code goes here
+       Node* temp = head; // Pointer to traverse the list
+
+        while (temp != nullptr) { // Traverse until the end
+            cout << temp->data << " "; // Print the value followed by space
+            temp = temp->next; // Move to the next node
+        }
+        cout << endl; // Print a newline at the end
+    }
+};
+
+
+// Remove Duplicates from Sorted List
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+         ListNode* current = head;
+
+        while (current != nullptr && current->next != nullptr) {
+            if (current->val == current->next->val) {
+                // Skip the duplicate node
+                current->next = current->next->next;
+            } else {
+                // Move to the next node
+                current = current->next;
+            }
+        }
+        
+        return head;
+    }
+    
+};
+
+// Reverse a Linked List 
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        
+        ListNode* prev = nullptr;
+        ListNode* current = head;
+        
+        while (current != nullptr) {
+            ListNode* nextNode = current->next; // Save next node
+            current->next = prev; // Reverse the link
+            prev = current; // Move prev to current node
+            current = nextNode; // Move current to next node
+        }
+        
+        return prev; // New head of the reversed list
+    }
+};
